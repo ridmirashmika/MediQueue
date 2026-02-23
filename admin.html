@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Admin Panel | MediQueue SL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { colors: { gov: { 50: '#f0fdfa', 500: '#14b8a6', 700: '#0f766e', 800: '#115e59', 900: '#1e3a8a' }, sl: { maroon: '#8d153a' } }, fontFamily: { sans: ['Inter', 'sans-serif'] } }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 text-gray-800 antialiased flex h-screen overflow-hidden">
+
+    <!-- Sidebar Admin -->
+    <aside class="w-64 bg-gov-900 text-white flex flex-col h-full shadow-2xl relative z-20">
+        <div class="p-6 border-b border-gray-700">
+            <div class="flex items-center gap-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Emblem_of_Sri_Lanka.svg/1024px-Emblem_of_Sri_Lanka.svg.png"
+                    alt="SL Emblem" class="h-8 filter grayscale brightness-200">
+                <span class="text-xl font-bold leading-none">Medi<span class="text-gov-500">Admin</span></span>
+            </div>
+            <p class="text-[10px] text-gray-400 uppercase mt-2">Ministry of Health Staff Only</p>
+        </div>
+
+        <nav class="flex-grow p-4 space-y-2 overflow-y-auto">
+            <a href="#" class="flex items-center gap-3 px-4 py-3 bg-gov-800 rounded-lg text-white font-medium"><i
+                    class="fa-solid fa-desktop w-5"></i> Queue Controller</a>
+            <a href="#"
+                class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-gov-800/50 rounded-lg font-medium transition"><i
+                    class="fa-solid fa-users w-5"></i> Manage Tokens</a>
+            <a href="#"
+                class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-gov-800/50 rounded-lg font-medium transition"><i
+                    class="fa-solid fa-hospital-user w-5"></i> OPD Configurations</a>
+            <a href="#"
+                class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-gov-800/50 rounded-lg font-medium transition"><i
+                    class="fa-solid fa-chart-line w-5"></i> Reports</a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-700 bg-gray-900/50">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-full bg-sl-maroon text-white flex items-center justify-center font-bold">
+                    ST</div>
+                <div>
+                    <p class="text-sm font-medium text-white">Staff Member</p>
+                    <p class="text-xs text-green-400">Online</p>
+                </div>
+            </div>
+            <a href="index.html"
+                class="block w-full text-center text-xs text-gray-400 hover:text-white border border-gray-600 rounded py-2 hover:bg-gray-700 transition">Logout
+                to Public Site</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-full overflow-y-auto relative">
+        <!-- Top bar -->
+        <header class="bg-white px-8 py-5 shadow-sm flex justify-between items-center z-10 border-b border-gray-200">
+            <div>
+                <h1 class="text-xl font-bold text-gray-800">Queue Controller Terminal</h1>
+                <p class="text-xs text-gray-500">General OPD - Counter 01 (National Hospital)</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div
+                    class="bg-red-50 text-red-600 px-3 py-1 rounded border border-red-100 text-sm font-semibold flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span> Live System Active
+                </div>
+                <button class="text-gray-400 hover:text-gray-700"><i class="fa-solid fa-bell text-xl"></i></button>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="p-8 max-w-5xl mx-auto w-full">
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Large Control Panel -->
+                <div class="lg:col-span-2 space-y-8">
+
+                    <div
+                        class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 text-center flex flex-col items-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-gov-50 rounded-bl-full z-0"></div>
+                        <h2 class="text-gray-500 font-bold uppercase tracking-widest text-sm relative z-10 mb-8">Current
+                            Token</h2>
+
+                        <div class="text-8xl font-black text-gov-900 font-mono tracking-tighter mb-8 relative z-10"
+                            id="adminCurrentToken">A-145</div>
+
+                        <div class="flex gap-4 w-full justify-center relative z-10">
+                            <button id="nextTokenBtn"
+                                class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-xl shadow-lg border-b-4 border-green-800 active:border-b-0 active:translate-y-1 transition-all text-xl flex items-center gap-3">
+                                <i class="fa-solid fa-bullhorn"></i> Call Next Token (A-146)
+                            </button>
+                        </div>
+                        <div class="flex gap-4 w-full justify-center mt-4 border-t border-gray-100 pt-6 relative z-10">
+                            <button
+                                class="bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium py-2 px-6 rounded-lg text-sm transition">Recall
+                                Current</button>
+                            <button
+                                class="bg-red-50 text-red-600 hover:bg-red-100 font-medium py-2 px-6 rounded-lg text-sm transition border border-red-100">Mark
+                                as No-Show</button>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Summary -->
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                            <p class="text-xs text-gray-500 font-semibold mb-1 uppercase">Waiting Queue</p>
+                            <p class="text-3xl font-bold text-gov-800">42</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                            <p class="text-xs text-gray-500 font-semibold mb-1 uppercase">Tokens Served</p>
+                            <p class="text-3xl font-bold text-gov-800" id="adminServingPatients">145</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                            <p class="text-xs text-gray-500 font-semibold mb-1 uppercase">Avg. Time</p>
+                            <p class="text-3xl font-bold text-gov-800">4<span class="text-lg text-gray-500">m</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar List -->
+                <div
+                    class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden flex flex-col h-[500px]">
+                    <div
+                        class="p-4 bg-gray-50 border-b border-gray-200 font-bold text-gray-700 flex justify-between items-center">
+                        <i class="fa-solid fa-list-ol text-gov-500"></i> Up Next
+                        <span class="text-xs font-normal text-gray-500 bg-white px-2 py-1 rounded border">Auto-refresh
+                            On</span>
+                    </div>
+                    <div class="p-0 overflow-y-auto flex-1">
+                        <ul class="divide-y divide-gray-100">
+                            <!-- Items -->
+                            <li class="p-4 bg-green-50 flex justify-between items-center border-l-4 border-green-500">
+                                <div>
+                                    <span class="font-bold text-lg font-mono text-gray-900 block">A-146</span>
+                                    <span class="text-xs text-gray-500">Online Booklet</span>
+                                </div>
+                                <span
+                                    class="text-xs font-bold text-green-700 bg-green-200 px-2 py-1 rounded">Next</span>
+                            </li>
+                            <li class="p-4 flex justify-between items-center hover:bg-gray-50">
+                                <div>
+                                    <span class="font-bold text-lg font-mono text-gray-800 block">A-147</span>
+                                    <span class="text-xs text-gray-500">Walk-in</span>
+                                </div>
+                                <span class="text-xs text-gray-400">Waiting</span>
+                            </li>
+                            <li class="p-4 flex justify-between items-center hover:bg-gray-50">
+                                <div>
+                                    <span class="font-bold text-lg font-mono text-gray-800 block">A-148</span>
+                                    <span class="text-xs text-gray-500">Online Booklet</span>
+                                </div>
+                                <span class="text-xs text-gray-400">Waiting</span>
+                            </li>
+                            <li class="p-4 flex justify-between items-center hover:bg-gray-50">
+                                <div>
+                                    <span class="font-bold text-lg font-mono text-gray-800 block">A-149</span>
+                                    <span class="text-xs text-gray-500">Walk-in</span>
+                                </div>
+                                <span class="text-xs text-gray-400">Waiting</span>
+                            </li>
+                            <li class="p-4 flex justify-between items-center hover:bg-gray-50">
+                                <div>
+                                    <span class="font-bold text-lg font-mono text-gray-800 block">A-150</span>
+                                    <span class="text-xs text-gray-500">Online Booklet</span>
+                                </div>
+                                <span class="text-xs text-gray-400">Waiting</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

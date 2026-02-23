@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Tracking | MediQueue SL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { gov: { 50: '#f0fdfa', 100: '#ccfbf1', 500: '#14b8a6', 700: '#0f766e', 800: '#115e59', 900: '#1e3a8a' }, sl: { gold: '#ffbe29', maroon: '#8d153a' } },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gov-50 text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Emblem_of_Sri_Lanka.svg/1024px-Emblem_of_Sri_Lanka.svg.png"
+                        alt="SL Emblem" class="h-10 w-auto opacity-90">
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-bold text-gov-900 leading-none">Medi<span
+                                class="text-gov-500">Queue</span></span>
+                    </div>
+                </a>
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-gray-600 hover:text-gov-500 font-medium transition">Home</a>
+                    <a href="booking.html" class="text-gray-600 hover:text-gov-500 font-medium transition">Token
+                        Booking</a>
+                    <a href="tracking.html" class="text-gov-500 font-semibold border-b-2 border-gov-500 pb-1">Live
+                        Tracking</a>
+                    <a href="doctors.html" class="text-gray-600 hover:text-gov-500 font-medium transition">Doctors</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex flex-col items-center justify-center p-4 py-12 w-full max-w-7xl mx-auto relative">
+
+        <div class="text-center mb-8">
+            <span
+                class="bg-red-100 text-red-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest inline-flex items-center gap-2 mb-4 animate-pulse"><span
+                    class="status-dot bg-red-600"></span> Live Monitor Feed</span>
+            <h1 class="text-3xl font-extrabold text-gov-900 sm:text-4xl">Real-time Dashboard</h1>
+            <p class="mt-2 text-gray-500">Select your hospital to view currently serving tokens and counter status.</p>
+        </div>
+
+        <div class="w-full max-w-4xl bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200">
+            <!-- Filter Top -->
+            <div class="bg-gray-800 text-white p-4 md:p-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="w-full md:w-1/2 relative">
+                    <i
+                        class="fa-solid fa-hospital absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <select
+                        class="w-full bg-gray-700 border-none text-white pl-12 pr-4 py-3 rounded-lg focus:ring-2 focus:ring-gov-500 cursor-pointer appearance-none font-semibold">
+                        <option>National Hospital - Colombo</option>
+                        <option>Teaching Hospital - Kandy</option>
+                        <option>Karapitiya Teaching Hospital</option>
+                    </select>
+                </div>
+                <div class="flex items-center gap-2 text-sm text-gray-300">
+                    <i class="fa-solid fa-clock"></i> Last Updated: <span class="font-bold text-white">Just now</span>
+                </div>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200">
+                <!-- Counter 1 -->
+                <div
+                    class="bg-white p-8 sm:p-10 flex flex-col items-center justify-center text-center relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gov-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="relative z-10 w-full">
+                        <h3 class="text-lg font-bold text-gray-500 tracking-wider uppercase mb-1">General OPD</h3>
+                        <p class="text-sm text-gray-400 mb-6 border-b pb-4">Counter 01 | Dr. R. Silva</p>
+                        <div class="text-sm font-semibold text-gray-400 mb-2">NOW SERVING</div>
+                        <div class="text-7xl font-black text-gov-900 font-mono tracking-tighter mb-4">A-145</div>
+                        <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border border-gray-100">
+                            <span class="text-gray-500 font-medium">Next in line</span>
+                            <span class="text-xl font-bold text-gray-800 font-mono">A-146</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Counter 2 -->
+                <div
+                    class="bg-white p-8 sm:p-10 flex flex-col items-center justify-center text-center relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="relative z-10 w-full">
+                        <h3 class="text-lg font-bold text-gray-500 tracking-wider uppercase mb-1">Cardiology Clinic</h3>
+                        <p class="text-sm text-gray-400 mb-6 border-b pb-4">Counter 03 | Dr. S. Perera</p>
+                        <div class="text-sm font-semibold text-gray-400 mb-2">NOW SERVING</div>
+                        <div class="text-7xl font-black text-blue-800 font-mono tracking-tighter mb-4">C-082</div>
+                        <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border border-gray-100">
+                            <span class="text-gray-500 font-medium">Next in line</span>
+                            <span class="text-xl font-bold text-gray-800 font-mono">C-083</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Counter 3 -->
+                <div
+                    class="bg-white p-8 sm:p-10 flex flex-col items-center justify-center text-center relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="relative z-10 w-full">
+                        <h3 class="text-lg font-bold text-gray-500 tracking-wider uppercase mb-1">Eye Clinic</h3>
+                        <p class="text-sm text-gray-400 mb-6 border-b pb-4">Room 102 | Dr. M. Fernado</p>
+                        <div class="text-sm font-semibold text-gray-400 mb-2">NOW SERVING</div>
+                        <div class="text-7xl font-black text-purple-800 font-mono tracking-tighter mb-4">E-045</div>
+                        <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border border-gray-100">
+                            <span class="text-gray-500 font-medium">Next in line</span>
+                            <span class="text-xl font-bold text-gray-800 font-mono">E-046</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Tracker Widget -->
+                <div class="animated-bg p-8 sm:p-10 flex flex-col justify-center text-white relative shadow-inner">
+                    <h3 class="text-2xl font-bold mb-2">Track Your Token</h3>
+                    <p class="text-sm text-gray-200 mb-6">Enter your Token ID (e.g., A-150) to see your exact estimated
+                        wait time.</p>
+
+                    <div class="flex flex-col gap-4">
+                        <div class="flex">
+                            <input type="text" placeholder="Enter Token No..."
+                                class="w-full px-4 py-3 rounded-l-lg border-0 text-gray-900 font-mono font-bold focus:ring-2 focus:ring-sl-gold outline-none">
+                            <button
+                                class="bg-sl-gold text-gov-900 font-bold px-6 py-3 rounded-r-lg hover:bg-yellow-400 transition shadow-lg">Track</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-gov-900 text-white mt-auto py-6 text-center text-sm">
+        <p>&copy; 2026 Ministry of Health, Sri Lanka. Smart Health Initiative.</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

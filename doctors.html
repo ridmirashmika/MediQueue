@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard | MediQueue SL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { colors: { gov: { 50: '#f0fdfa', 100: '#ccfbf1', 500: '#14b8a6', 900: '#1e3a8a' }, sl: { gold: '#ffbe29', maroon: '#8d153a' } }, fontFamily: { sans: ['Inter', 'sans-serif'] } }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Emblem_of_Sri_Lanka.svg/1024px-Emblem_of_Sri_Lanka.svg.png"
+                        alt="SL Emblem" class="h-10 opacity-90">
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-bold text-gov-900 leading-none">Medi<span
+                                class="text-gov-500">Queue</span></span>
+                    </div>
+                </a>
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-gray-600 hover:text-gov-500 font-medium transition">Home</a>
+                    <a href="booking.html" class="text-gray-600 hover:text-gov-500 font-medium transition">Token
+                        Booking</a>
+                    <a href="tracking.html" class="text-gray-600 hover:text-gov-500 font-medium transition">Live
+                        Tracking</a>
+                    <a href="doctors.html" class="text-gov-500 font-semibold border-b-2 border-gov-500 pb-1">Doctors</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
+            <div>
+                <h1 class="text-3xl font-extrabold text-gov-900">Doctor Availability Dashboard</h1>
+                <p class="mt-2 text-gray-500">Check schedules and active duty status of medical officers.</p>
+            </div>
+
+            <div class="flex gap-2 bg-white p-2 rounded-lg shadow-sm border border-gray-200">
+                <div class="relative">
+                    <i class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" placeholder="Search by name or spec..."
+                        class="pl-10 pr-4 py-2 border border-gray-200 rounded-md focus:outline-none focus:border-gov-500 text-sm w-64">
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Doctor Card 1 -->
+            <div
+                class="bg-white rounded-2xl p-6 shadow-md border hover:shadow-xl transition-shadow border-gray-100 flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex gap-4 items-center">
+                        <div class="w-16 h-16 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=150&h=150&fit=crop"
+                                alt="Doctor" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Dr. Ranjith Silva</h3>
+                            <p class="text-sm text-gov-600 font-semibold">Chief Medical Officer</p>
+                            <p class="text-xs text-gray-400">MBBS, MD (Colombo)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-4 mb-4 flex-grow border border-gray-100">
+                    <p class="text-xs text-gray-500 mb-1"><i class="fa-solid fa-location-dot"></i> National Hospital,
+                        Colombo</p>
+                    <p class="text-xs text-gray-500"><i class="fa-solid fa-building"></i> General OPD - Counter 01</p>
+                </div>
+                <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                    <div class="flex items-center gap-2">
+                        <span class="status-dot status-available"></span>
+                        <span class="text-sm font-semibold text-green-600">ON DUTY</span>
+                    </div>
+                    <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-medium">08:00 AM - 04:00
+                        PM</span>
+                </div>
+            </div>
+
+            <!-- Doctor Card 2 -->
+            <div
+                class="bg-white rounded-2xl p-6 shadow-md border hover:shadow-xl transition-shadow border-gray-100 flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex gap-4 items-center">
+                        <div class="w-16 h-16 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1594824432258-fce594892780?w=150&h=150&fit=crop"
+                                alt="Doctor" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Dr. Samanmalee Perera</h3>
+                            <p class="text-sm text-gov-600 font-semibold">Consultant Cardiologist</p>
+                            <p class="text-xs text-gray-400">MBBS, MRCP (UK)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-4 mb-4 flex-grow border border-gray-100">
+                    <p class="text-xs text-gray-500 mb-1"><i class="fa-solid fa-location-dot"></i> Teaching Hospital,
+                        Kandy</p>
+                    <p class="text-xs text-gray-500"><i class="fa-solid fa-building"></i> Cardiology Clinic - Room A</p>
+                </div>
+                <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                    <div class="flex items-center gap-2">
+                        <span class="status-dot status-available"></span>
+                        <span class="text-sm font-semibold text-green-600">IN SURGERY (Will return)</span>
+                    </div>
+                    <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-medium">09:00 AM - 01:00
+                        PM</span>
+                </div>
+            </div>
+
+            <!-- Doctor Card 3 -->
+            <div
+                class="bg-white rounded-2xl p-6 shadow-md border hover:shadow-xl transition-shadow border-gray-100 flex flex-col opacity-75">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex gap-4 items-center">
+                        <div class="w-16 h-16 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&h=150&fit=crop"
+                                alt="Doctor" class="w-full h-full object-cover grayscale">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Dr. Nuwan Balasuriya</h3>
+                            <p class="text-sm text-gov-600 font-semibold">Pediatrician</p>
+                            <p class="text-xs text-gray-400">MBBS, MD (Pediatrics)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-4 mb-4 flex-grow border border-gray-100">
+                    <p class="text-xs text-gray-500 mb-1"><i class="fa-solid fa-location-dot"></i> Karapitiya Hospital
+                    </p>
+                    <p class="text-xs text-gray-500"><i class="fa-solid fa-building"></i> Children's Ward</p>
+                </div>
+                <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                    <div class="flex items-center gap-2">
+                        <span class="status-dot status-occupied"></span>
+                        <span class="text-sm font-semibold text-red-600">OFF DUTY</span>
+                    </div>
+                    <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-medium">Next shift:
+                        Tomorrow</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div
+            class="mt-12 bg-gov-900 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between shadow-2xl relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=2000&auto=format&fit=crop')] opacity-10 bg-cover bg-center mix-blend-overlay">
+            </div>
+            <div class="relative z-10 text-white md:w-2/3 mb-6 md:mb-0">
+                <h2 class="text-2xl font-bold mb-2">Are you a Medical Officer?</h2>
+                <p class="text-gov-100 text-sm max-w-lg">Login to your centralized doctor portal to update your duty
+                    status, manage your OPD allocations, and review patient histories securely.</p>
+            </div>
+            <div class="relative z-10">
+                <a href="#"
+                    class="btn-primary bg-white text-gov-900 hover:bg-gray-100 border-none px-8 py-3 w-auto inline-block shadow-lg">Official
+                    Login Access</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gov-900 text-white mt-auto py-6 text-center text-sm">
+        <p>&copy; 2026 Ministry of Health, Sri Lanka.</p>
+    </footer>
+</body>
+
+</html>

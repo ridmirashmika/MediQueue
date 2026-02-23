@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediQueue | Sri Lanka Government Hospitals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gov: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6', // Teal medical color
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#1e3a8a', // Deep blue
+                        },
+                        sl: {
+                            gold: '#ffbe29',
+                            maroon: '#8d153a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Top Bar -->
+    <div class="bg-gov-900 text-white text-xs py-2 px-4 md:px-8 flex justify-between items-center">
+        <div>
+            <i class="fa-solid fa-phone mr-1"></i> Emergency: 1990 (Suwa Seriya) | 
+            <i class="fa-solid fa-envelope ml-2 mr-1"></i> info@mediqueue.gov.lk
+        </div>
+        <div class="space-x-4">
+            <a href="#" class="hover:text-sl-gold transition">English</a>
+            <a href="#" class="hover:text-sl-gold transition">සිංහල</a>
+            <a href="#" class="hover:text-sl-gold transition">தமிழ்</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <!-- Placeholder emblem -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Emblem_of_Sri_Lanka.svg/1024px-Emblem_of_Sri_Lanka.svg.png" alt="SL Emblem" class="h-10 w-auto opacity-90">
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-bold text-gov-900 leading-none">Medi<span class="text-gov-500">Queue</span></span>
+                        <span class="text-[10px] text-gray-500 font-semibold uppercase tracking-wider">Ministry of Health - Sri Lanka</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-gov-500 font-semibold border-b-2 border-gov-500 pb-1">Home</a>
+                    <a href="booking.html" class="text-gray-600 hover:text-gov-500 font-medium transition duration-150">Token Booking</a>
+                    <a href="tracking.html" class="text-gray-600 hover:text-gov-500 font-medium transition duration-150">Live Tracking</a>
+                    <a href="doctors.html" class="text-gray-600 hover:text-gov-500 font-medium transition duration-150">Doctors</a>
+                    <a href="admin.html" class="text-sl-maroon font-medium border border-sl-maroon px-4 py-2 rounded-md hover:bg-sl-maroon hover:text-white transition duration-200">Staff Login</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-600 hover:text-gov-900 focus:outline-none focus:text-gov-900">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gov-900 overflow-hidden flex-grow">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop" alt="Hospital Building" class="w-full h-full object-cover opacity-20 Mix-blend-overlay">
+            <div class="absolute inset-0 bg-gradient-to-r from-gov-900 to-transparent opacity-90"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left">
+                <span class="inline-block py-1 px-3 rounded-full bg-gov-500/20 text-gov-100 text-sm font-semibold mb-4 border border-gov-500/30">Official Government Service</span>
+                <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl lg:leading-tight">
+                    Smart Outpatient<br>
+                    <span class="text-gov-500 text-transparent bg-clip-text bg-gradient-to-r from-gov-100 to-gov-500">Queue Management</span>
+                </h1>
+                <p class="mt-4 text-lg text-gray-300 max-w-xl mx-auto md:mx-0">
+                    Skip the long lines at government hospitals across Sri Lanka. Book your OPD token online, track the queue in real-time, and get notified exactly when it's your turn.
+                </p>
+                <div class="mt-8 sm:flex sm:justify-center md:justify-start gap-4">
+                    <a href="booking.html" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gov-900 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 shadow-lg transition transform hover:-translate-y-1">
+                        Book Token Now
+                    </a>
+                    <a href="tracking.html" class="mt-3 sm:mt-0 flex items-center justify-center px-8 py-3 border border-gov-500 text-base font-medium rounded-md text-white hover:bg-gov-800 md:py-4 md:text-lg md:px-10 transition">
+                        Track Queue <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats/Info Card (Glassmorphism) -->
+            <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center md:justify-end">
+                <div class="glass flex flex-col gap-6 p-8 rounded-2xl border border-white/10 w-full max-w-md shadow-2xl relative overflow-hidden backdrop-blur-md bg-white/5">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gov-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+                    <div class="absolute bottom-0 left-0 w-32 h-32 bg-sl-gold rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+                    
+                    <h3 class="text-xl font-bold text-white mb-2 relative z-10">Current Live Statistics</h3>
+                    
+                    <div class="grid grid-cols-2 gap-4 relative z-10">
+                        <div class="bg-gov-900/50 p-4 rounded-xl border border-white/5">
+                            <i class="fa-solid fa-hospital text-gov-500 text-2xl mb-2"></i>
+                            <p class="text-3xl font-bold text-white">45+</p>
+                            <p class="text-sm text-gray-400">Hospitals Added</p>
+                        </div>
+                        <div class="bg-gov-900/50 p-4 rounded-xl border border-white/5">
+                            <i class="fa-solid fa-user-doctor text-sl-gold text-2xl mb-2"></i>
+                            <p class="text-3xl font-bold text-white">1.2K</p>
+                            <p class="text-sm text-gray-400">Doctors Online</p>
+                        </div>
+                        <div class="bg-gov-900/50 p-4 rounded-xl border border-white/5 col-span-2 flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-white">12,450</p>
+                                <p class="text-sm text-gray-400">Tokens Issued Today</p>
+                            </div>
+                            <div class="h-12 w-12 rounded-full bg-gov-500/20 flex items-center justify-center">
+                                <i class="fa-solid fa-ticket text-gov-500"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-semibold text-gov-500 tracking-wide uppercase">Why Use MediQueue?</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gov-900 sm:text-4xl">
+                    Better Healthcare Access for Every Citizen
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    A digital initiative to streamline government hospital visits, reducing wait times and improving patient experience.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Online Booking</h3>
+                    <p class="text-gray-600">Secure your spot in the OPD queue from home using your national identity card.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 rounded-full bg-gov-100 text-gov-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-gov-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-spinner fa-spin-pulse"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Live Tracking</h3>
+                    <p class="text-gray-600">Monitor the current token number being served in your registered department instantly.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-yellow-500 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Smart Alerts</h3>
+                    <p class="text-gray-600">Receive SMS/Email notifications when your turn is approaching. No more crowded waiting areas.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Doctor Dashboard</h3>
+                    <p class="text-gray-600">Check availability of specialist doctors and consultants across different hospitals easily.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gov-900 text-white mt-auto pt-16 pb-8 border-t-[6px] border-sl-maroon">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Emblem_of_Sri_Lanka.svg/1024px-Emblem_of_Sri_Lanka.svg.png" alt="SL Emblem" class="h-12 opacity-80 filter grayscale brightness-200">
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-bold text-white leading-none">MediQueue</span>
+                            <span class="text-[9px] text-gray-400 uppercase tracking-wider">Ministry of Health SL</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Streamlining patient care and optimizing hospital queues across the island. Officially implemented by the Ministry of Health.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="booking.html" class="hover:text-white transition">Book a Token</a></li>
+                        <li><a href="tracking.html" class="hover:text-white transition">Live Queue Status</a></li>
+                        <li><a href="doctors.html" class="hover:text-white transition">Doctor Availability</a></li>
+                        <li><a href="#" class="hover:text-white transition">Find Hospitals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Help & Support</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition">How exactly it works</a></li>
+                        <li><a href="#" class="hover:text-white transition">FAQs</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact Ministry</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Contact</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-location-dot mt-1 text-gov-500"></i> Suwasiripaya, No. 385, Rev. Baddegama Wimalawansa Thero Mawatha, Colombo 10, Sri Lanka.</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-gov-500"></i> +94 11 2694033</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-gov-500"></i> support@mediqueue.gov.lk</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 Ministry of Health, Sri Lanka. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 flex gap-4">
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-facebook text-xl"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-youtube text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
